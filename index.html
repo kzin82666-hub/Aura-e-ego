@@ -3,6 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <title>Venha conheçer a verdadeira aura</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #f0e6ff 0%, #e0f7fa 100%);
+            min-height: 100vh;
+            color: #222;
+            transition: background 0.4s;
+        }
+        header {
+            background: linear-gradient(90deg, #1e293b 70%, #5eead4 100%);
+            color: #fff;
+            padding: 38px 0 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(30,41,59,0.12);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.7em;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite alternate;
+        }
+        @keyframes bounce {
+            0%   { transform: translateY(0);}
+            100% { transform: translateY(-16px);}
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.07em;
+            padding: 6px 20px;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s, transform 0.3s;
+        }
+        nav ul li a:hover, nav ul li a:focus {
+            background: #fffbe0;
+            color: #1e293b;
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 2px 8px #ffd70055;
+        }
+main {
+            max-width: 800px;
+            margin: 36px auto;
+            background: rgba(255,255,255,0.92);
+            padding: 35px 28px 44px 28px;
+            border-radius: 20px;
+            box-shadow: 0 2px 24px rgba(30,41,59,0.12);
+            transition: box-shadow 0.3s, background 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            width: 100%;
+            max-width: 720px;
+        }
+        video {
+            width: 100%;
+            max-width: 720px;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            background: #222;
+            box-shadow: 0 2px 18px #ffd70044;
+        }
+        .opcoes-animadas {
+            margin: 32px auto 0 auto;
+            padding: 28px 24px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #5eead488, 0 1px 12px #ffd70022;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 22px;
+            position: relative;
+            animation: fadeInUp 1.2s cubic-bezier(.21,.66,.58,1.0);
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        .opcoes-animadas h3 {
+            font-size: 1.6em;
+            color: #1e293b;
+letter-spacing: 1px;
+            margin: 0;
+            animation: pulse 2s infinite alternate;
+            text-align: center;
+        }
+        @keyframes pulse {
+            0% { text-shadow: 0 0 18px #ffd70066; }
+            100% { text-shadow: 0 0 38px #5eead4cc; }
+        }
+        .opcoes-animadas button {
+            font-size: 1.13em;
+            font-weight: bold;
+            padding: 12px 40px;
+            margin-top: 8px;
+            border: none;
+            border-radius: 32px;
+            background: linear-gradient(90deg, #ffd700, #5eead4 90%);
+            color: #1e293b;
+            box-shadow: 0 2px 10px #ffd70055, 0 1px 2px #2221;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.15s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .opcoes-animadas button:hover, .opcoes-animadas button:focus {
+            background: linear-gradient(90deg, #ff4e00 10%, #ffd700 90%);
+            color: #fff;
+            transform: scale(1.07) translateY(-2px);
+            box-shadow: 0 8px 24px #ffd700aa, 0 1px 6px #5eead4bb;
+        }
+        .opcoes-animadas button:active {
+            transform: scale(0.98);
+            box-shadow: 0 3px 8px #ffd70088;
+        }
+        /* Modal styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+width: 100vw; height: 100vh;
+            background: rgba(20, 20, 20, 0.67);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeInModal 0.4s;
+        }
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 24px #1e293baa;
+            padding: 22px 18px 12px 18px;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .modal-content video {
+            width: 70vw;
+            max-width: 520px;
+            border-radius: 12px;
+            box-shadow: 0 2px 18px #ffd70044;
+            margin-bottom: 12px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 8px; right: 16px;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: #ff4e00;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .close-modal:hover {
+            color: #1e293b;
+            transform: scale(1.13);
+        }
+        @media (max-width: 800px) {
+            main { margin: 12px; padding: 12px; }
+            .video-container { max-width: 100%; }
+            .modal-content video { width: 95vw; max-width: 98vw; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,14 +213,52 @@
     </header>
     <main>
         <article>
-            <h2>1 passo</h2>
-            <p>sinta a aura......</p>
-            <video controls width="720" height="420" autoplay loop muted>
-                <source src="aura.mp4" type="video/mp4">
-                Seu navegador não suporta o elemento de vídeo.
-            </video>
+<h2><blockquote>1 passo</blockquote></h2>
+            <p><blockquote>sinta a aura....</blockquote></p>
+            <div class="video-container">
+                <video controls>
+                    <source src="aura.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <!-- NOVA SEÇÃO ANIMADA ABAIXO DO VÍDEO -->
+            <div class="opcoes-animadas">
+                <h3>Conheça mais sobre a gente</h3>
+                <button id="abrirModal">Buscar</button>
+            </div>
         </article>
     </main>
+    <!-- Modal oculto que abre outro vídeo -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="close-modal" id="fecharModal" title="Fechar">&times;</button>
+            <!-- Troque o src abaixo pelo vídeo que deseja exibir no modal -->
+            <video controls>
+                <source src="video-extra.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <div style="font-size:1.1em; text-align:center;">Aqui você pode colocar qualquer HTML, informações ou outro vídeo.</div>
+        </div>
+    </div>
+    <script>
+        const abrirModal = document.getElementById("abrirModal");
+        const fecharModal = document.getElementById("fecharModal");
+        const modalOverlay = document.getElementById("modalOverlay");
+
+        abrirModal.onclick = function
+    abrirModal.onclick = function() {
+        modalOverlay.classList.add("active");
+    }
+    fecharModal.onclick = function() {
+        modalOverlay.classList.remove("active");
+    }
+    // Fecha modal ao clicar fora do conteúdo do modal
+    modalOverlay.onclick = function(e) {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove("active");
+        }
+    }
+</script>
 </body>
 </html>
 
