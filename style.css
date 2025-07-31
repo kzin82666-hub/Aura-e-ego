@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Venha conheçer a verdadeira aura</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #f0e6ff 0%, #e0f7fa 100%);
+            min-height: 100vh;
+            color: #222;
+            transition: background 0.4s;
+        }
+        header {
+            background: linear-gradient(90deg, #1e293b 70%, #5eead4 100%);
+            color: #fff;
+            padding: 38px 0 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(30,41,59,0.12);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.7em;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite alternate;
+        }
+        @keyframes bounce {
+            0%   { transform: translateY(0);}
+            100% { transform: translateY(-16px);}
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.07em;
+            padding: 6px 20px;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s, transform 0.3s;
+        }
+        nav ul li a:hover, nav ul li a:focus {
+            background: #fffbe0;
+            color: #1e293b;
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 2px 8px #ffd70055;
+        }
+        main {
+            max-width: 800px;
+            margin: 36px auto;
+            background: #fff;
+            padding: 35px 28px 44px 28px;
+            border-radius: 16px;
+            box-shadow: 0 2px 24px rgba(30,41,59,0.12);
+            transition: box-shadow 0.3s;
+        }
+        main:hover {
+            box-shadow: 0 8px 32px rgba(94,234,212,0.25);
+        }
+        h2 {
+            color: #1e293b;
+            margin-top: 0;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 4px;
+            margin-top: 6px;
+            background: linear-gradient(90deg, #ffd700, #ff4e00);
+            border-radius: 2px;
+            animation: slidein 2s infinite alternate;
+        }
+        @keyframes slidein {
+            from { width: 0; }
+            to { width: 48px; }
+        }
+        p {
+            font-size: 1.18em;
+            margin-bottom: 20px;
+            letter-spacing: .5px;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(30,41,59,0.14);
+            background: #c7f9cc;
+            transition: box-shadow 0.3s;
+        }
+        .video-container:hover {
+            box-shadow: 0 8px 32px #5eead488;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #191919;
+        }
+        /* Botão Personalizado de Play (apenas visual) */
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px; height: 68px;
+            background: rgba(255,255,255,0.73);
+            border-radius: 50%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s;
+            box-shadow: 0 3px 18px #ffd70044;
+        }
+        .video-container:hover::before {
+            opacity: 1;
+        }
+        .video-container::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-42%, -50%);
+            width: 0; height: 0;
+            border-top: 22px solid transparent;
+            border-bottom: 22px solid transparent;
+            border-left: 32px solid #ffd700;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .video-container:hover::after {
+            opacity: 1;
+        }
+        @media (max-width: 800px) {
+            main {
+                margin: 12px;
+                padding: 12px;
+            }
+            .video-container {
+                max-width: 100%;
+            }
+        }
+        /* Animação sutil de fundo ao passar mouse no body */
+        body:hover {
+            background: linear-gradient(120deg, #e0f7fa 0%, #f0e6ff 100%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>3 passos para a capoeira proibida</h1>
+        <nav>
+            <ul>
+                <li><a href="#">shadow boxing</a></li>
+                <li><a href="#">olhar do anjo caido</a></li>
+                <li><a href="#">capoeira proibida</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>1 passo</h2>
+            <p>sinta a aura......</p>
+            <div class="video-container">
+                <video controls width="720" height="420">
+                    <source src="aura.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
+
